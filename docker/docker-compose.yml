@@ -1,0 +1,28 @@
+version: '2'
+services:
+  gemini:
+    build: containers/gemini
+    container_name: gem_gemini
+#    links:
+#      - firefox
+#      - chrome
+    volumes:
+      - ../tests:/var/work
+#  hub:
+#    image: qualiboo/testing-hub
+#    ports:
+#      - 4444:4444
+#    expose:
+#      - 4444
+#  firefox:
+#    image: qualiboo/testing-node-firefox
+#    ports:
+#      - 5900
+#    links:
+#      - hub
+#  chrome:
+#    image: qualiboo/testing-node-chrome
+#    ports:
+#      - 5900
+#    links:
+#      - hub

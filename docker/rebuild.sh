@@ -1,0 +1,2 @@
+./down.sh
+./build.sh

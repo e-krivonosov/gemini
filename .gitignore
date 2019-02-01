@@ -1,0 +1,4 @@
+/.idea
+/tests/node_modules
+/tests/gemini
+/tests/package-lock.json
