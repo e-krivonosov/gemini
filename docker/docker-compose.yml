@@ -3,26 +3,40 @@ services:
   gemini:
     build: containers/gemini
     container_name: gem_gemini
-#    links:
+    links:
 #      - firefox
-#      - chrome
+      - chrome
     volumes:
       - ../tests:/var/work
-#  hub:
-#    image: qualiboo/testing-hub
+    networks:
+      - gemini_net
+  hub:
+    image: qualiboo/testing-hub
 #    ports:
 #      - 4444:4444
 #    expose:
 #      - 4444
+    networks:
+      - gemini_net
+#    entrypoint: java -jar /opt/selenium/selenium-server-standalone.jar -port 4444
 #  firefox:
 #    image: qualiboo/testing-node-firefox
 #    ports:
 #      - 5900
 #    links:
 #      - hub
-#  chrome:
-#    image: qualiboo/testing-node-chrome
-#    ports:
-#      - 5900
-#    links:
-#      - hub
+  chrome:
+    image: qualiboo/testing-node-chrome
+    ports:
+      - 5900
+    links:
+      - hub
+    networks:
+      - gemini_net
+networks:
+  gemini_net:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet:  192.168.50.1/28

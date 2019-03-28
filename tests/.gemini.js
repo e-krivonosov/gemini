@@ -1,6 +1,6 @@
 module.exports = {
-    rootUrl: 'http://yandex.ru',
-    gridUrl: 'http://127.0.0.1:4444/wd/hub',
+    rootUrl: 'https://yandex.ru',
+    gridUrl: 'http://hub:4444/wd/hub',
 
     browsers: {
         chrome: {
